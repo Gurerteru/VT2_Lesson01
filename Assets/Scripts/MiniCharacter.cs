@@ -4,6 +4,14 @@ using UnityEngine.InputSystem;
 
 public class MiniCharacter : MonoBehaviour
 {
+    // === Enum === //
+    public enum AnimationPattern
+    {
+        Idle,
+        Walk,
+        HoldBoth
+    }
+
     [Header("Attack Settings")]
     public GameObject BulletPrifab;    // 弾のプレハブ参照
     public GameObject ShotPoint;       // 弾の発射位置のオブジェクト参照
@@ -12,6 +20,9 @@ public class MiniCharacter : MonoBehaviour
     [Header("** Camera settings **")]
     // カメラ軸(CameraJoint)のオブジェクト
     public GameObject CameraJoint;
+
+    [Header("** Animation Settings **")]
+    public Animator animator;
 
     [Header("** Weapon Settings **")]
     public BaseWeapon weapon;           // 武器をアタッチする変数
@@ -35,8 +46,21 @@ public class MiniCharacter : MonoBehaviour
         Move();     // メソッドを呼び出す
         Look();
 
-        if(_inputAttackValue > 0.1f)
+        // 移動するアニメーション
+        if (_inputmoveVelocity.magnitude > 0.1f)
         {
+            animator.SetInteger("state", (int)AnimationPattern.Idle);
+        }
+        else
+        {
+            animator.SetInteger("state", (int)AnimationPattern.Walk);
+        }
+
+        if (_inputAttackValue > 0.1f)
+        {
+            // 攻撃アニメーション
+            animator.SetInteger("state", (int)AnimationPattern.HoldBoth);
+
             weapon.OnTriggerAction();
         }
     }
@@ -92,6 +116,7 @@ public class MiniCharacter : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
+
         Debug.Log($"attack value is {value.Get()}");
 
         _inputAttackValue = value.Get<float>();

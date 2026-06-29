@@ -546,7 +546,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5017971254852617305, guid: 7ac88e8536f957247a1488db9cc7b698, type: 3}
       insertIndex: -1
       addedObject: {fileID: 807196269}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ac88e8536f957247a1488db9cc7b698, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1959870816}
   m_SourcePrefab: {fileID: 100100000, guid: 7ac88e8536f957247a1488db9cc7b698, type: 3}
 --- !u!4 &811275863 stripped
 Transform:
@@ -1179,6 +1182,7 @@ MonoBehaviour:
   ShotPoint: {fileID: 0}
   ShotPower: 50
   CameraJoint: {fileID: 1811606184}
+  animator: {fileID: 1959870816}
   weapon: {fileID: 1800589723}
   _inputmoveVelocity: {x: 0, y: 0, z: 0}
   _inputLookVelocity: {x: 0, y: 0, z: 0}
@@ -1232,6 +1236,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.42769486}
   m_Center: {x: 0, y: 0.40999997, z: 0.004592024}
+--- !u!1 &1959870815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ac88e8536f957247a1488db9cc7b698, type: 3}
+  m_PrefabInstance: {fileID: 811275862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1959870816
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959870815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7ac88e8536f957247a1488db9cc7b698, type: 3}
+  m_Controller: {fileID: 9100000, guid: a7ae6dc32140af345a7f306e8c6df7d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2067299962
 GameObject:
   m_ObjectHideFlags: 0
